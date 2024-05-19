@@ -1,0 +1,39 @@
+{
+    "name": "stack-gh-stats_sb-pet",
+    "version": "0.0.0",
+    "type": "module",
+    "description": "A small application that retrieves data from Github's Stack Builders organization using Github's public API",
+    "main": ".src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node src/index.js",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "format": "prettier --write .",
+        "look": "npm run format && npm run lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WashingtonYandun/stack-gh-stats_sb-pet.git"
+    },
+    "keywords": [
+        "Pet",
+        "Project"
+    ],
+    "author": "WashingtonYandun",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/WashingtonYandun/stack-gh-stats_sb-pet/issues"
+    },
+    "homepage": "https://github.com/WashingtonYandun/stack-gh-stats_sb-pet#readme",
+    "devDependencies": {
+        "@eslint/js": "^9.3.0",
+        "eslint": "^9.3.0",
+        "globals": "^15.3.0",
+        "lint-staged": "^15.2.2",
+        "prettier": "3.2.5"
+    }
+}
