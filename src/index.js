@@ -1,5 +1,3 @@
-console.log("Hello, world!");
-const a = 1;
-const b = 2;
+export const sum = (a, b) => a + b;
 
-console.log(a + b);
+console.log(sum(1, 2)); // 3
