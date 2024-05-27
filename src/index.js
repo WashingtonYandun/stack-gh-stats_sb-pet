@@ -1,4 +1,9 @@
-import { getGithubRepos, getLastUpdatedRepos, sumRepositoryStars, filterReposByStars } from "../src/utils/Utils.js";
+import {
+    getGithubRepos,
+    getLastUpdatedRepos,
+    sumRepositoryStars,
+    filterReposByStars,
+} from "../src/helpers/Core.helper.js";
 
 export const main = async () => {
     try {
@@ -15,6 +20,7 @@ export const main = async () => {
         console.log("MORE THAN K STARS", moreThan);
     } catch (error) {
         console.error(error);
+        throw error;
     }
 };
 

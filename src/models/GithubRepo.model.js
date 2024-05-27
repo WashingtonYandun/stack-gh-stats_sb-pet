@@ -1,3 +1,5 @@
+import { ConnectionError, FetchError, ForbiddenError } from "../errors/ErrorFactory.js";
+
 /**
  * GithubRepo model class
  * @class GithubRepo
@@ -25,7 +27,44 @@ export class GithubRepo {
         this.createdAt = new Date(builder.createdAt);
         this.updatedAt = new Date(builder.updatedAt);
         this.pushedAt = new Date(builder.pushedAt);
+
+        this.langStats = {};
+        this.timeStats = {};
     }
+
+    /**
+     * Set the language statistics.
+     * @param {Object} langStats - The language statistics object.
+     */
+    async setLangStats() {
+        // get languages stats from languagesUrl
+        try {
+            const response = await fetch(this.languagesUrl, {
+                method: "GET",
+                headers: {
+                    Accept: "application/vnd.github.v3+json",
+                },
+            });
+
+            if (!response.ok) {
+                throw new ConnectionError("Failed to fetch data");
+            } else if (response.status === 403) {
+                throw new ForbiddenError("Forbidden to fetch Github data");
+            }
+
+            const langStats = await response.json();
+            this.langStats = langStats;
+        } catch (error) {
+            throw new FetchError(error.message);
+        }
+    }
+
+    /**
+     * Set the time statistics.
+     * @param {Object} timeStats - The time statistics object.
+     */
+
+    setTimeStats() {}
 }
 
 /**

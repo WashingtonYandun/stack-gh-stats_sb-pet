@@ -1,9 +1,8 @@
 import { FetchError, ConnectionError, ForbiddenError, RecursiveError } from "../errors/ErrorFactory.js";
-import { buildUrl } from "../utils/Utils.js";
 
-export const fetchData = async (url, page) => {
+export const fetchData = async (url) => {
     try {
-        const response = await fetch(buildUrl(url, page), {
+        const response = await fetch(url, {
             method: "GET",
             headers: {
                 Accept: "application/vnd.github.v3+json",
@@ -24,12 +23,13 @@ export const fetchData = async (url, page) => {
 
 export const fetchAllRepos = async (url, page = 1, allRepos = []) => {
     try {
-        const repos = await fetchData(url, page);
+        const repos = await fetchData(url);
         if (repos === null || repos.length === 0) {
             return allRepos;
         }
         const newRepos = allRepos.concat(repos);
-        return fetchAllRepos(url, page + 1, newRepos);
+        const newPage = page + 1;
+        return fetchAllRepos(`${url}?per_page=100&page=${newPage}`, newPage, newRepos);
     } catch (error) {
         throw new RecursiveError(error.message);
     }

@@ -1,6 +1,6 @@
-import { GithubRepoBuilder } from "../models/GithubRepo.js";
+import { GithubRepoBuilder } from "../models/GithubRepo.model.js";
 import { API } from "../constants/Constants.js";
-import { fetchAllRepos } from "./Api.js";
+import { fetchAllRepos } from "./Api.helper.js";
 import { GithubRepoBuilderError } from "../errors/ErrorFactory.js";
 
 export const mapResponseToGithubRepos = (response) => {
@@ -27,12 +27,8 @@ export const mapResponseToGithubRepos = (response) => {
     }
 };
 
-export const buildUrl = (url, page) => {
-    return `${url}?per_page=100&page=${page}`;
-};
-
 export const getGithubRepos = async () => {
-    const repos = await fetchAllRepos(buildUrl(API.GITHUB_API_URL, 1));
+    const repos = await fetchAllRepos(`${API.GITHUB_API_URL}?per_page=100&page=${1}`);
     return mapResponseToGithubRepos(repos);
 };
 
