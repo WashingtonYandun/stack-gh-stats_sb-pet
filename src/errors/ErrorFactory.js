@@ -22,7 +22,7 @@ export const manageError = (error) => {
             console.error(new UnkwownError(error.message));
             break;
     }
-}
+};
 
 export const FetchError = errorFactory("FetchError", "An error occurred while fetching the API");
 

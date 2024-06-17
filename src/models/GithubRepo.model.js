@@ -1,5 +1,3 @@
-import { ConnectionError, FetchError, ForbiddenError } from "../errors/ErrorFactory.js";
-
 export class GithubRepo {
     constructor(builder) {
         this.name = builder.name;

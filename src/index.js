@@ -5,6 +5,8 @@ import {
     filterReposByStars,
 } from "../src/helpers/Core.helper.js";
 
+import { manageError } from "../src/helpers/Error.helper.js";
+
 export const main = async () => {
     try {
         const repos = await getGithubRepos();
