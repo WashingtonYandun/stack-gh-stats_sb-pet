@@ -8,19 +8,17 @@ import {
 export const main = async () => {
     try {
         const repos = await getGithubRepos();
-        console.log("REPOS", repos);
 
-        const totalStars = sumRepositoryStars(repos);
-        console.log("SUM STARS", totalStars);
+        const moreThan = filterReposByStars(repos, 5);
+        console.log("MORE THAN K STARS", moreThan);
 
         const lastUpdated = getLastUpdatedRepos(repos, 5);
         console.log("UPDATED", lastUpdated);
 
-        const moreThan = filterReposByStars(repos, 5);
-        console.log("MORE THAN K STARS", moreThan);
+        const totalStars = sumRepositoryStars(repos);
+        console.log("SUM STARS", totalStars);
     } catch (error) {
-        console.error(error);
-        throw error;
+        manageError(error);
     }
 };
 

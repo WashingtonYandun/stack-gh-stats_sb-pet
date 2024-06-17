@@ -1,4 +1,4 @@
-import { FetchError, ConnectionError, ForbiddenError, RecursiveError } from "../errors/ErrorFactory.js";
+import { FetchError, ConnectionError, ForbiddenError, LogicError } from "../errors/ErrorFactory.js";
 
 export const fetchData = async (url) => {
     try {
@@ -31,6 +31,6 @@ export const fetchAllRepos = async (url, page = 1, allRepos = []) => {
         const newPage = page + 1;
         return fetchAllRepos(`${url}?per_page=100&page=${newPage}`, newPage, newRepos);
     } catch (error) {
-        throw new RecursiveError(error.message);
+        throw new LogicError(error.message);
     }
 };
