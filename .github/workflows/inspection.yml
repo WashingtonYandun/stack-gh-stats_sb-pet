@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is running GitHub Actions 🚀
 on: [pull_request]
 
 jobs:
-    SB Github Stats:
+    SB_Github_Stats:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
