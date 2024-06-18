@@ -1,4 +1,4 @@
-name: linter-test
+name: linter-and-test
 run-name: ${{ github.actor }} is running GitHub Actions 🚀
 
 on: [pull_request]
