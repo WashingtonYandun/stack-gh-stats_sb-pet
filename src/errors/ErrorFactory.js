@@ -10,17 +10,17 @@ const errorFactory = (name, description) => {
 
 export const manageError = (error) => {
     switch (error.name) {
-        case "FetchError":
-        case "ConnectionError":
-        case "ForbiddenError":
-        case "LogicError":
-        case "GithubRepoBuilderError":
-        case "UnkwownError":
-            console.error(error);
-            break;
-        default:
-            console.error(new UnkwownError(error.message));
-            break;
+    case "FetchError":
+    case "ConnectionError":
+    case "ForbiddenError":
+    case "LogicError":
+    case "GithubRepoBuilderError":
+    case "UnkwownError":
+        console.error(error);
+        break;
+    default:
+        console.error(new UnkwownError(error.message));
+        break;
     }
 };
 

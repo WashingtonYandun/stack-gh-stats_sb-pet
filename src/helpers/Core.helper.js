@@ -30,7 +30,7 @@ export const getGithubRepos = async () => {
     return mapResponseToGithubRepos(repos);
 };
 
-export const filterReposByStars = (repos, stars) => {
+export const filterReposMoreThanKStars = (repos, stars) => {
     return repos.filter((repo) => {
         return repo.starsCount > stars;
     });

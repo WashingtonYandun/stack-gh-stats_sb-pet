@@ -28,7 +28,7 @@ export class GithubRepoBuilder {
         return this;
     }
     setLicense(license) {
-        this.license = license ? license.name : "N/A";
+        this.license = license && license.name ? license.name : "N/A";
         return this;
     }
     setHtmlUrl(htmlUrl) {
