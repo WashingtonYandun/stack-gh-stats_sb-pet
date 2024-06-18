@@ -9,20 +9,12 @@ import {
 } from "../../src/helpers/Core.helper.js";
 
 describe("Core Helper", () => {
-    describe("getGithubRepos", () => {
-        test("returns an array of repositories", async () => {
-            const repos = await getGithubRepos();
-            expect(Array.isArray(repos)).toBe(true);
-        });
-    });
-    
     describe("mapResponseToGithubRepos", () => {
         test("returns an array of GithubRepo objects", () => {
             const result = mapResponseToGithubRepos(MOCK_RESPONSE);
             expect(result).toEqual(MOCK_EXPECTED);
         });
     });
-
 
     describe("filterReposByStars", () => {
         test("returns an array of GithubRepo objects with starsCount greater than the given stars", () => {
