@@ -2,7 +2,6 @@ import { describe, expect, test } from "vitest";
 import { mapResponseToGithubRepos } from "../../src/helpers/Core.helper.js";
 import { MOCK_EXPECTED, MOCK_RESPONSE } from "../mocks/repos.js";
 import {
-    getGithubRepos,
     filterReposMoreThanKStars,
     getLastUpdatedRepos,
     sumRepositoryStars,

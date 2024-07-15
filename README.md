@@ -5,18 +5,18 @@ Builders organization](https://github.com/stackbuilders).
 
 The application should show:
 
-- Repositories with more than 5 stars
+-   Repositories with more than 5 stars
 
-- Last 5 updated repositories
+-   Last 5 updated repositories
 
-- Sum of all repository stars
+-   Sum of all repository stars
 
 Considerations:
 
-- Each functionality can be a function
+-   Each functionality can be a function
 
-- Try to make pure functions wherever possible.
+-   Try to make pure functions wherever possible.
 
-- Include unit tests and test coverage
+-   Include unit tests and test coverage
 
-- Unit tests may not connect to GitHub, but use a fixture with preprocessed data
+-   Unit tests may not connect to GitHub, but use a fixture with preprocessed data
